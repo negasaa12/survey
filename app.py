@@ -1,5 +1,5 @@
 from flask import Flask , request, render_template , session, redirect, url_for
-from survey import Question, surveys, satisfaction_survey, personality_quiz
+from survey import Question, Survey, satisfaction_survey, personality_quiz
 from flask_debugtoolbar import DebugToolbarExtension
 
 
@@ -21,16 +21,20 @@ def home():
 @app.route('/questions/<int:question_id>', methods=['POST','GET']) 
 def survey_question(question_id):
 
+    
+    
     questions = satisfaction_survey.questions
     question = questions[question_id]
-         
-    if question_id < len(questions) -1:
-           return redirect(f'/questions/{question_id + 1}')
-        
-        
-      
+    
+    for q in questions:
+        print(q.choices)
 
-    return render_template('questions.html')
+     
+#   if question_id < 0 or len(questions) -1:
+#            return redirect(f'/questions/{question_id + 1}')
+         
+   
+    return render_template('questions.html', questions=questions)
 
 
 # @app.route('/answers')

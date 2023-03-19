@@ -6,6 +6,17 @@
 
 {% block content %}
 
+{% for p in questions %}
+    <p>{{p.question}}</p>
+{%for c in questions %}
+    {{c.choices}} <input type="radio"> <br>
+
+
+ {% endfor %}
+
+ {% endfor %}
+
+ 
 
 
 
