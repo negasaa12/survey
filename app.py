@@ -22,19 +22,20 @@ def home():
 def survey_question(question_id):
 
     
+    questions_list = satisfaction_survey.questions
+    question = questions_list[question_id]
     
-    questions = satisfaction_survey.questions
-    question = questions[question_id]
-    
-    for q in questions:
-        print(q.choices)
+    if question_id < 1 or len(questions_list) -1:
+        # return redirect(f'/questions/{question_id + 1}')
+        print(f"THIS IS QUESTION ===> {question.question}")
+        
+
 
      
-#   if question_id < 0 or len(questions) -1:
-#            return redirect(f'/questions/{question_id + 1}')
+  
          
    
-    return render_template('questions.html', questions=questions)
+    return render_template('questions.html', questions_list=questions_list, question=question )
 
 
 # @app.route('/answers')
