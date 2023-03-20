@@ -2,9 +2,12 @@
 
 {% block h1 %}<h1> SURVEY QUESTIONS</h1>{% endblock %}
 
-
+{% for msg in get_flashed_messages() %}
+<p>{{msg}}</p>
+{% endfor %}
 
 {% block content %}
+
 
 <p>{{question.question}}</p>
 
