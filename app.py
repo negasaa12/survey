@@ -27,7 +27,7 @@ def survey_question(question_id):
     
     if question_id < 1 or len(questions_list) -1:
         # return redirect(f'/questions/{question_id + 1}')
-        print(f"THIS IS QUESTION ===> {question.question}")
+        # print(f"THIS IS QUESTION ===> {question.question}")
         
 
 
@@ -35,7 +35,7 @@ def survey_question(question_id):
   
          
    
-    return render_template('questions.html', questions_list=questions_list, question=question )
+        return render_template('questions.html', questions_list=questions_list, question=question )
 
 
 # @app.route('/answers')

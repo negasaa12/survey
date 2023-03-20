@@ -8,7 +8,9 @@
 
 <p>{{question.question}}</p>
 
-   
+{% for c in question.choices %} 
+    {{c}}<input type="radio">
+   {% endfor %}
 
 
  
