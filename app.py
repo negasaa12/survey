@@ -7,7 +7,7 @@ keys = 'responses'
 
 
 app = Flask(__name__)
-app.config['SECRET KEY'] = 'hello'
+app.config['SECRET_KEY'] = 'hello'
 app.debug = True
 debug = DebugToolbarExtension
 
@@ -63,16 +63,16 @@ def survey_question(question_id):
 @app.route('/answers', methods=["POST"] )
 def your_answer():
    
-    questions_list = survey.questions
-    
-    # question = questions_list[id]
     answer = request.form['the-answers']
+
     responses = session[keys]
     responses.append(answer)
     session[keys] = responses 
 
-    print(responses)
-
+    questions_list = survey.questions
+    
+    # question = questions_list[id]
+   
     if (len(responses) == len(survey.questions)):
         return redirect("/complete")
     
